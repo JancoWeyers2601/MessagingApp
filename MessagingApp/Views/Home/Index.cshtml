@@ -1,0 +1,33 @@
+﻿@model MessagingApp.Models.MessageModel
+@{
+    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Index";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Messaging</h1>
+    @foreach (var Message in ViewBag.Messages)
+    {
+        <div class="container">
+            <span class="time-right">
+                Time: @Message.tbl_Message_Time
+                User: @Message.FkTblUser
+            </span>
+            <p> @Message.TblMessageBody </p>
+           
+        </div>
+       
+    }
+
+    @using (Html.BeginForm("SendMessage","Home",FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.TblMessageBody, new {@class = "form-control",@placeholder = "Message"})
+        <p> </p>
+        <input type="submit" value="Send Message" class="btn btn-block btn-primary" />
+    }
+ 
+</div>
+
+
+

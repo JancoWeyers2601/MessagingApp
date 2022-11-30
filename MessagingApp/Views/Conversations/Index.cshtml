@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MessagingApp.Models.Conversation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Active conversations</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblConversationHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkTblCreator)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblConversationHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkTblCreator)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PkTblConversation">Edit</a> |
+                    <a asp-action="JoinConversation" asp-route-id="@item.PkTblConversation" asp-route-ConversationName="@item.TblConversationHeader">Join</a> |
+                <a asp-action="Delete" asp-route-id="@item.PkTblConversation">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

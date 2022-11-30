@@ -1,0 +1,48 @@
+﻿@model MessagingApp.Models.MessageModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Message</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FkTblConversation" class="control-label"></label>
+                <input asp-for="FkTblConversation" class="form-control" />
+                <span asp-validation-for="FkTblConversation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkTblUser" class="control-label"></label>
+                <input asp-for="FkTblUser" class="form-control" />
+                <span asp-validation-for="FkTblUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblMessageHeader" class="control-label"></label>
+                <input asp-for="TblMessageHeader" class="form-control" />
+                <span asp-validation-for="TblMessageHeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblMessageBody" class="control-label"></label>
+                <input asp-for="TblMessageBody" class="form-control" />
+                <span asp-validation-for="TblMessageBody" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

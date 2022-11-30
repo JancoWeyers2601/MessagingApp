@@ -1,0 +1,30 @@
+﻿@model MessagingApp.Models.Conversation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Conversation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TblConversationHeader)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TblConversationHeader)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FkTblCreator)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FkTblCreator)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PkTblConversation">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
